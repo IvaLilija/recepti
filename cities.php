@@ -12,7 +12,8 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     while ($row = $stmt->fetch()) {
-        echo "<li>" . $row['title'] . "</li>";
+        echo '<li>'.$row['title'].' <a href="city_delete.php?id='.$row['id'].'"onclick="return confirm(\'Prepričani?\');"> (x) </a> 
+        <a href="city_edit.php?id='.$row['id'].'"> (u) </a></li>';
     }
     ?>
 
