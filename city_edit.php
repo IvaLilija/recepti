@@ -7,12 +7,10 @@ $stmt->execute([$id]);
 
 $row = $stmt->fetch();
 ?>
+<?php
+include_once "header.php";
+?>
 
-<html>
-<head>
-    <title>Recepti</title>
-</head>
-<body>
 <h1>Uredi kraj</h1>
 <form action="city_update.php" method="post">
     <input type="hidden" name="id" value="<?php echo $row['id'];?>">
@@ -21,5 +19,6 @@ $row = $stmt->fetch();
     <input type="submit" value="Shrani" />
 </form>
 
-</body>
-</html>
+<?php
+include_once "footer.php";
+?>

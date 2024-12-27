@@ -1,8 +1,6 @@
-<html>
-<head>
-    <title>Recepti</title>
-</head>
-<body>
+<?php
+include_once "header.php";
+?>
 <h1>Kraji</h1>
 <a href="city_add.php">DODAJ KRAJ</a>
 <ul>
@@ -18,5 +16,6 @@
     ?>
 
 </ul>
-</body>
-</html>
+<?php
+include_once "footer.php";
+?>
