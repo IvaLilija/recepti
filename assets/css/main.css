@@ -552,13 +552,38 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+/*html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden; !* Prepreči horizontalni zamik *!
+}
+.container {
+  margin: 0 auto; !* Centriraj vsebino *!
+  max-width: 1140px; !* Standardna širina za vsebino *!
+  padding: 15px; !* Dodaj notranje robove *!
+}
+.footer {
+  background-color: #333; !* Temno ozadje *!
+  color: #fff; !* Svetla barva teksta *!
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}*/
+
+
 .footer {
   --heading-font: var(--default-font);
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: var(--default-color);
   font-size: 14px;
   padding: 40px 0;
   position: relative;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .footer .icon {

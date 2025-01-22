@@ -1,10 +1,13 @@
+<?php
+include_once "session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Starter Page - Yummy Bootstrap Template</title>
+    <title>VSŠ Recepti</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -50,35 +53,31 @@
 
         <nav id="navmenu" class="navmenu">
             <ul>
-                <li><a href="#hero">Home<br></a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#chefs">Chefs</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                            <ul>
-                                <li><a href="#">Deep Dropdown 1</a></li>
-                                <li><a href="#">Deep Dropdown 2</a></li>
-                                <li><a href="#">Deep Dropdown 3</a></li>
-                                <li><a href="#">Deep Dropdown 4</a></li>
-                                <li><a href="#">Deep Dropdown 5</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Dropdown 2</a></li>
-                        <li><a href="#">Dropdown 3</a></li>
-                        <li><a href="#">Dropdown 4</a></li>
-                    </ul>
-                </li>
-                <li><a href="#contact">Contact</a></li>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    //prijavljen
+                    ?>
+                    <li><a href="index.php">Domov<br></a></li>
+                    <li><a href="recipes.php">Recepti<br></a></li>
+                    <li><a href="cities.php">Kraji</a></li>
+                    <li><a href="categories.php">Kategorije</a></li>
+                    <li><a href="logout.php">Odjava</a></li>
+                    <?php
+                }
+                else {
+                    //odjavljen
+                    ?>
+                    <li><a href="user_add.php">Registracija</a></li>
+                    <li><a href="login.php">Prijava</a></li>
+                    <?php
+                }
+                ?>
+
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="btn-getstarted" href="index.html#book-a-table">Book a Table</a>
+        <a class="btn-getstarted" href="recipe_add.php">Dodaj recept</a>
 
     </div>
 </header>
@@ -86,6 +85,3 @@
 <main class="main">
     <section id="about" class="about section">
         <div class="container">
-
-        </div>
-    </section>
