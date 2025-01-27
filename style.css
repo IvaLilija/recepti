@@ -1,0 +1,24 @@
+#sporocilo{
+    /*border-style: solid;
+    border-color: black;
+    border-width: medium;*/
+
+    width: 25%;
+    text-align: center;
+    margin: -40px auto 0 auto;
+}
+
+.msg-success{
+    background-color: darkseagreen;
+    color: white;
+}
+
+.msg-error{
+    background-color: red;
+    color: white;
+}
+
+.msg-warning{
+    background-color: yellow;
+    color: black;
+}

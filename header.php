@@ -29,6 +29,7 @@ include_once "session.php";
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Yummy
@@ -85,3 +86,9 @@ include_once "session.php";
 <main class="main">
     <section id="about" class="about section">
         <div class="container">
+            <?php
+                if (isset($_SESSION['msg'])) {
+                    echo '<div id="sporocilo" class="msg-'.$_SESSION['type'].'">'.$_SESSION['msg'].'</div>';
+                    unset($_SESSION['msg']); //zbrišeš da ti prikaže samo enkrat, pol pa ne več
+                }
+                ?>

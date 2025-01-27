@@ -9,7 +9,7 @@ include_once 'db.php';
 
     <ul>
         <?php
-        $sql = "SELECT r.id, r.title AS recipe, c.title AS category 
+        $sql = "SELECT r.*, r.title AS recipe, c.title AS category 
     FROM recipes r INNER JOIN categories c ON c.id=r.category_id ORDER BY r.title";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -19,8 +19,11 @@ include_once 'db.php';
             echo '<a href="recipe.php?id='.$row['id'].'">';
             echo $row['recipe'].' ('.$row['category'].')';
             echo '</a>';
-            echo ' <a href="recipe_delete.php?id='.$row['id'].'">(x)</a>';
-            echo ' <a href="recipe_edit.php?id='.$row['id'].'">(u)</a>';
+            if ($_SESSION['user_id'] == $row['user_id']) {
+                echo ' <a href="recipe_delete.php?id='.$row['id'].'">(x)</a>';
+                echo ' <a href="recipe_edit.php?id='.$row['id'].'">(u)</a>';
+            }
+
             echo '</li>';
         }
         ?>

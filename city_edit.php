@@ -1,4 +1,9 @@
 <?php
+include_once 'session.php';
+if (!isAdmin()) {
+    header('Location: index.php');
+    die();
+}
 include_once 'db.php';
 $id = $_GET['id'];
 $sql = "SELECT * FROM cities WHERE id = ?";

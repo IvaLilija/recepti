@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once "session.php";
 include_once 'db.php';
 
 $id = $_GET['id'];
@@ -9,6 +9,14 @@ $stmt->execute([$id]);
 
 $row = $stmt->fetch();
 
+if ($row['user_id'] != $_SESSION['id']) {
+    //preusmeritev - ne dovolim
+    header('location: recipes.php');
+    die();
+
+}
+include_once 'header.php';
+//to zgoraj je zaščita, da če ni avtor, ne more priti na recipe_edit
 ?>
 
     <h1>Uredi recept</h1>

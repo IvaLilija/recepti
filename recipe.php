@@ -67,6 +67,10 @@ $row = $stmt->fetch();
                 echo '<div class="oseba">'.$row['first_name'].' '.$row['last_name'].' ('.$row['date_add'].')</div>';
                 echo '<div class="ocena">'.$row['score'].'</div>';
                 echo '<div class="vsebina">'.$row['content'].'</div>';
+                //preverim ali je trenutno prijavljen uporabnik napisal ta komentar
+                if ($_SESSION['user_id'] == $row['user_id']) {
+                    echo '<div class="akcija"><a href="comment_delete.php?id='.$row['id'].'" onclick="return confirm(\'Prepričan?\')">X</a></div>';
+                }
                 echo '</div>';
             }
 

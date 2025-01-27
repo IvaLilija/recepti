@@ -16,8 +16,8 @@ $ingredients = $_POST['ingredients'];
 
 $sql = "UPDATE recipes SET
                 title=?, category_id=?, description=?, duration=?, level=?, number_of_people=?, proceedings=?, ingredients=?, user_id=?
-                WHERE id=?";
+                WHERE id=? AND user_id=?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([$title,$category_id,$description,$duration,$level,$number_of_people,$proceedings,$ingredients,$user_id, $id]);
+$stmt->execute([$title,$category_id,$description,$duration,$level,$number_of_people,$proceedings,$ingredients,$user_id, $id, $user_id]);
 
 header("Location: recipes.php");
